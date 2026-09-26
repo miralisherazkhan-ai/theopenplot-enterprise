@@ -1,4 +1,33 @@
-import Image from "next/image";
+export default function Home() {
+  return (
+    <main className="min-h-screen bg-white text-black flex items-center justify-center px-8">
+      <div className="max-w-4xl text-center">
+        <h1 className="text-6xl font-bold mb-6">
+          The OpenPlot
+        </h1>
+
+        <p className="text-2xl text-gray-700 mb-8">
+          Enterprise AI Platform for Law, Governance, Intelligence and Public Systems.
+        </p>
+
+        <p className="text-lg text-gray-600 mb-10">
+          Building the operating system for legal professionals, institutions,
+          investigators, policy makers, and citizens.
+        </p>
+
+        <div className="flex gap-4 justify-center">
+          <button className="bg-black text-white px-6 py-3 rounded-xl">
+            Launch Platform
+          </button>
+
+          <button className="border border-black px-6 py-3 rounded-xl">
+            Learn More
+          </button>
+        </div>
+      </div>
+    </main>
+  );
+}import Image from "next/image";
 
 export default function Home() {
   return (
