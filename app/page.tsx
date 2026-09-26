@@ -1,149 +1,475 @@
-"use client";
+
+{"use client";
+
+const featuredProperties = [
+  {
+    title: \"Luxury Mango Farm\",
+    location: \"Shankarpally, Hyderabad\",
+    price: \"₹92 Lakhs\",
+    size: \"2 Acres\",
+    score: \"98 HYDRA Score\",
+  },
+  {
+    title: \"Gated Farm Plot Community\",
+    location: \"Mokila, Hyderabad\",
+    price: \"₹42 Lakhs\",
+    size: \"605 Sq.Yds\",
+    score: \"95 HYDRA Score\",
+  },
+  {
+    title: \"Weekend Farmhouse Land\",
+    location: \"Chevella, Hyderabad\",
+    price: \"₹68 Lakhs\",
+    size: \"1 Acre\",
+    score: \"96 HYDRA Score\",
+  },
+];
+
+const hydraScores = [
+  [\"💧 Water\", \"96/100\"],
+  [\"🌱 Soil\", \"92/100\"],
+  [\"⚖️ Legal\", \"99/100\"],
+  [\"📈 Investment\", \"94/100\"],
+];
+
+const locations = [
+  \"Shankarpally\",
+  \"Mokila\",
+  \"Chevella\",
+  \"Maheshwaram\",
+  \"Sangareddy\",
+  \"Vikarabad\",
+];
+
+const services = [
+  \"Legal Verification\",
+  \"Survey & Demarcation\",
+  \"Borewell Services\",
+  \"Farmhouse Construction\",
+  \"Plantation Planning\",
+  \"Fencing & Landscaping\",
+];
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-white text-gray-900">
-      {/* Hero */}
-      <section className="bg-gradient-to-br from-blue-900 via-blue-700 to-cyan-500 text-white">
-        <div className="max-w-7xl mx-auto px-6 py-24 text-center">
-          <h1 className="text-5xl md:text-7xl font-bold mb-6">
+    <main className=\"min-h-screen bg-white text-slate-900\">
+
+      {/* NAVBAR */}
+      <header className=\"sticky top-0 z-50 bg-white/90 backdrop-blur border-b\">
+        <div className=\"max-w-7xl mx-auto flex items-center justify-between px-6 py-4\">
+          <div className=\"text-2xl font-bold text-green-700\">
             The OpenPlot
-          </h1>
-
-          <p className="text-xl md:text-2xl text-blue-100 max-w-3xl mx-auto mb-10">
-            Enterprise GIS Platform for Land Records, Urban Planning, and
-            Property Intelligence.
-          </p>
-
-          <div className="flex flex-col sm:flex-row justify-center gap-4">
-            <button className="bg-white text-blue-700 px-8 py-4 rounded-xl font-semibold shadow-lg hover:bg-gray-100">
-              Book Demo
-            </button>
-
-            <button className="border border-white px-8 py-4 rounded-xl font-semibold hover:bg-white hover:text-blue-700">
-              Explore Platform
-            </button>
           </div>
+
+          <nav className=\"hidden md:flex gap-8 text-sm font-medium\">
+            <a href=\"#marketplace\">Marketplace</a>
+            <a href=\"#hydra\">HYDRA AI</a>
+            <a href=\"#explorer\">Hyderabad Explorer</a>
+            <a href=\"#services\">Services</a>
+            <a href=\"#contact\">Contact</a>
+          </nav>
+
+          <button className=\"bg-green-700 text-white px-4 py-2 rounded-xl\">
+            AI Advisor
+          </button>
+        </div>
+      </header>
+
+      {/* HERO */}
+      <section className=\"bg-gradient-to-br from-green-900 via-emerald-700 to-green-500 text-white\">
+        <div className=\"max-w-7xl mx-auto px-6 py-24 grid md:grid-cols-2 gap-12 items-center\">
+
+          <div>
+            <p className=\"uppercase tracking-widest text-green-200 mb-3\">
+              AI Powered Client Advocacy Platform
+            </p>
+
+            <h1 className=\"text-5xl md:text-6xl font-extrabold leading-tight\">
+              Buy Smarter. Sell Smarter. Invest in Farmland with Confidence.
+            </h1>
+
+            <p className=\"mt-6 text-lg text-green-100\">
+              Discover verified Farm Lands, Farm Plots and Farmhouses across
+              Hyderabad & Telangana with AI-powered legal, water, soil and
+              investment intelligence.
+            </p>
+
+            <div className=\"flex flex-wrap gap-4 mt-8\">
+              <button className=\"bg-white text-green-700 px-6 py-3 rounded-xl font-bold\">
+                Explore Properties
+              </button>
+
+              <button className=\"border border-white px-6 py-3 rounded-xl\">
+                Talk to HYDRA AI
+              </button>
+            </div>
+
+            <div className=\"grid grid-cols-2 gap-6 mt-10\">
+              <div>
+                <p className=\"text-3xl font-bold\">500+</p>
+                <p className=\"text-green-100\">Verified Farm Listings</p>
+              </div>
+
+              <div>
+                <p className=\"text-3xl font-bold\">50+</p>
+                <p className=\"text-green-100\">Growth Locations</p>
+              </div>
+            </div>
+          </div>
+
+          <div className=\"bg-white/10 rounded-3xl p-6 backdrop-blur\">
+            <div className=\"bg-white rounded-2xl p-5 text-slate-900\">
+              <p className=\"font-semibold mb-4\">
+                Ask HYDRA AI
+              </p>
+
+              <div className=\"border rounded-xl p-4 text-gray-500\">
+                Find HMDA Farm Plots under ₹50 Lakhs near ORR within 45 minutes of Gachibowli...
+              </div>
+
+              <button className=\"mt-5 w-full bg-green-700 text-white py-3 rounded-xl font-semibold\">
+                Search with AI
+              </button>
+            </div>
+          </div>
+
         </div>
       </section>
 
-      {/* About */}
-      <section className="py-20 px-6 max-w-6xl mx-auto">
-        <div className="text-center mb-14">
-          <h2 className="text-4xl font-bold mb-4">
-            Built for Governments & Enterprises
+      {/* MARKETPLACE */}
+      <section id=\"marketplace\" className=\"py-20 max-w-7xl mx-auto px-6\">
+        <div className=\"text-center mb-14\">
+          <h2 className=\"text-4xl font-bold\">
+            Farm Property Marketplace
           </h2>
 
-          <p className="text-gray-600 text-lg max-w-3xl mx-auto">
-            The OpenPlot digitizes land records, maps infrastructure, manages
-            property ownership, and enables smart city decision-making from a
-            single GIS dashboard.
+          <p className=\"text-gray-600 mt-4\">
+            Curated properties verified through OpenPlot Client Advocacy.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className=\"grid md:grid-cols-4 gap-6\">
           {[
-            {
-              title: "Land Records",
-              desc: "Digitize survey maps, ownership records, mutation history, and cadastral data.",
-            },
-            {
-              title: "GIS Mapping",
-              desc: "Interactive parcel maps, zoning layers, satellite imagery, and analytics.",
-            },
-            {
-              title: "Smart Planning",
-              desc: "Planning permissions, infrastructure tracking, and urban development insights.",
-            },
-          ].map((item) => (
+            \"🌾 Farm Lands\",
+            \"🌿 Farm Plots\",
+            \"🏡 Farmhouses\",
+            \"🥭 Orchards\",
+          ].map((cat) => (
             <div
-              key={item.title}
-              className="rounded-2xl border p-8 shadow-sm hover:shadow-lg transition"
+              key={cat}
+              className=\"rounded-2xl border p-8 hover:shadow-xl transition text-center bg-green-50\"
             >
-              <h3 className="text-2xl font-semibold mb-3">{item.title}</h3>
-              <p className="text-gray-600">{item.desc}</p>
+              <div className=\"text-4xl mb-4\">
+                {cat.split(\" \")[0]}
+              </div>
+
+              <h3 className=\"font-bold text-lg\">
+                {cat.substring(2)}
+              </h3>
             </div>
           ))}
         </div>
       </section>
 
-      {/* Features */}
-      <section className="bg-gray-50 py-20 px-6">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-14">
-            <h2 className="text-4xl font-bold">Core Platform Features</h2>
+      {/* FEATURED PROPERTIES */}
+      <section className=\"bg-slate-50 py-20\">
+        <div className=\"max-w-7xl mx-auto px-6\">
+          <div className=\"flex justify-between items-center mb-10\">
+            <h2 className=\"text-4xl font-bold\">
+              Featured Properties
+            </h2>
+
+            <button className=\"text-green-700 font-semibold\">
+              View All →
+            </button>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-6">
-            {[
-              "Cadastral Parcel Management",
-              "Property Ownership Registry",
-              "Mutation & Transfer Tracking",
-              "Village & City GIS Maps",
-              "Satellite & Survey Overlay",
-              "Road & Infrastructure Layers",
-              "Building Permission Workflow",
-              "Citizen Property Search Portal",
-            ].map((feature) => (
+          <div className=\"grid md:grid-cols-3 gap-8\">
+            {featuredProperties.map((property) => (
               <div
-                key={feature}
-                className="bg-white rounded-xl p-5 shadow border flex items-center gap-3"
+                key={property.title}
+                className=\"bg-white rounded-3xl overflow-hidden shadow hover:shadow-xl transition\"
               >
-                <div className="w-3 h-3 rounded-full bg-blue-600"></div>
-                <span className="font-medium">{feature}</span>
+                <div className=\"h-48 bg-gradient-to-br from-green-300 to-green-700\"></div>
+
+                <div className=\"p-6\">
+                  <span className=\"inline-block bg-green-100 text-green-700 text-xs px-3 py-1 rounded-full\">
+                    {property.score}
+                  </span>
+
+                  <h3 className=\"font-bold text-xl mt-4\">
+                    {property.title}
+                  </h3>
+
+                  <p className=\"text-gray-600 mt-2\">
+                    📍 {property.location}
+                  </p>
+
+                  <div className=\"flex justify-between mt-5\">
+                    <span className=\"font-bold text-green-700\">
+                      {property.price}
+                    </span>
+
+                    <span>{property.size}</span>
+                  </div>
+
+                  <button className=\"mt-6 w-full bg-green-700 text-white py-3 rounded-xl\">
+                    View AI Report
+                  </button>
+                </div>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Benefits */}
-      <section className="py-20 px-6 max-w-6xl mx-auto">
-        <div className="text-center mb-14">
-          <h2 className="text-4xl font-bold">Why Choose The OpenPlot?</h2>
+      {/* HYDRA */}
+      <section id=\"hydra\" className=\"py-20 bg-gradient-to-br from-slate-900 to-green-900 text-white\">
+        <div className=\"max-w-7xl mx-auto px-6\">
+          <div className=\"text-center\">
+            <p className=\"uppercase tracking-widest text-green-300\">
+              HYDRA AI ENGINE
+            </p>
+
+            <h2 className=\"text-4xl font-bold mt-3\">
+              AI Property Health & Investment Intelligence
+            </h2>
+
+            <p className=\"text-green-100 mt-4 max-w-2xl mx-auto\">
+              Every farm property receives a comprehensive AI analysis before you buy.
+            </p>
+          </div>
+
+          <div className=\"grid md:grid-cols-4 gap-6 mt-14\">
+            {hydraScores.map(([title, score]) => (
+              <div
+                key={title}
+                className=\"bg-white/10 rounded-2xl p-6 backdrop-blur text-center\"
+              >
+                <h3 className=\"text-lg\">
+                  {title}
+                </h3>
+
+                <p className=\"text-3xl font-bold mt-4 text-green-300\">
+                  {score}
+                </p>
+              </div>
+            ))}
+          </div>
+
+          <div className=\"grid md:grid-cols-3 gap-6 mt-12\">
+            {[
+              \"Legal Verification\",
+              \"Investment Growth Prediction\",
+              \"Farmhouse Suitability\",
+            ].map((item) => (
+              <div
+                key={item}
+                className=\"border border-green-700 rounded-2xl p-6 text-center\"
+              >
+                {item}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* WHY OPENPLOT */}
+      <section className=\"py-20 max-w-7xl mx-auto px-6\">
+        <div className=\"text-center mb-14\">
+          <h2 className=\"text-4xl font-bold\">
+            Why OpenPlot?
+          </h2>
+
+          <p className=\"text-gray-600 mt-4\">
+            We advocate for buyers and sellers—not brokers.
+          </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-8">
+        <div className=\"grid md:grid-cols-2 gap-8\">
           {[
-            "100% Web-based GIS Platform",
-            "Role-Based User Management",
-            "Secure Land Record Access",
-            "Real-Time Parcel Search",
-            "Cloud Hosted or On-Premise",
-            "API Integration Ready",
-          ].map((item) => (
+            \"AI Client Advocacy\",
+            \"Legal Document Verification\",
+            \"HYDRA AI Site Selection\",
+            \"Verified Farm Communities\",
+            \"Investment Intelligence\",
+            \"End-to-End Farm Concierge\",
+          ].map((feature) => (
             <div
-              key={item}
-              className="border rounded-2xl p-6 bg-blue-50 font-semibold text-lg"
+              key={feature}
+              className=\"rounded-2xl border p-6 flex items-center gap-4 hover:bg-green-50 transition\"
             >
-              {item}
+              <div className=\"text-green-700 text-2xl\">✓</div>
+
+              <p className=\"font-semibold\">
+                {feature}
+              </p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* HYDERABAD EXPLORER */}
+      <section id=\"explorer\" className=\"bg-green-50 py-20\">
+        <div className=\"max-w-7xl mx-auto px-6\">
+          <div className=\"text-center\">
+            <h2 className=\"text-4xl font-bold\">
+              Hyderabad Growth Corridor Explorer
+            </h2>
+
+            <p className=\"mt-4 text-gray-600\">
+              Discover AI-scored locations around Hyderabad.
+            </p>
+          </div>
+
+          <div className=\"grid md:grid-cols-3 gap-6 mt-12\">
+            {locations.map((loc) => (
+              <div
+                key={loc}
+                className=\"bg-white rounded-2xl p-6 shadow text-center\"
+              >
+                <h3 className=\"font-bold text-xl\">
+                  {loc}
+                </h3>
+
+                <p className=\"text-green-700 mt-3\">
+                  AI Growth Score: 92+
+                </p>
+
+                <button className=\"mt-5 border border-green-700 text-green-700 px-4 py-2 rounded-xl\">
+                  Explore Locality
+                </button>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* SERVICES */}
+      <section id=\"services\" className=\"py-20 max-w-7xl mx-auto px-6\">
+        <div className=\"text-center\">
+          <h2 className=\"text-4xl font-bold\">
+            Farm Concierge Services
+          </h2>
+
+          <p className=\"mt-4 text-gray-600\">
+            Verified professionals for every step of your farm journey.
+          </p>
+        </div>
+
+        <div className=\"grid md:grid-cols-3 gap-6 mt-12\">
+          {services.map((service) => (
+            <div
+              key={service}
+              className=\"border rounded-2xl p-6 hover:bg-green-50 transition\"
+            >
+              <div className=\"text-3xl mb-4\">🌿</div>
+
+              <h3 className=\"font-semibold text-lg\">
+                {service}
+              </h3>
             </div>
           ))}
         </div>
       </section>
 
       {/* CTA */}
-      <section className="bg-blue-700 text-white py-20 px-6 text-center">
-        <h2 className="text-4xl font-bold mb-6">
-          Ready to Modernize Land Management?
-        </h2>
+      <section className=\"bg-green-700 text-white py-20 text-center\">
+        <div className=\"max-w-3xl mx-auto px-6\">
+          <h2 className=\"text-4xl font-bold\">
+            Ready to Find Your Dream Farm?
+          </h2>
 
-        <p className="max-w-2xl mx-auto text-blue-100 text-lg mb-8">
-          Schedule a demonstration and discover how The OpenPlot transforms land
-          administration, urban planning, and property intelligence.
-        </p>
+          <p className=\"mt-5 text-green-100\">
+            Get AI-powered property advice, legal verification and Hyderabad investment insights in one place.
+          </p>
 
-        <button className="bg-white text-blue-700 px-8 py-4 rounded-xl font-bold hover:bg-gray-100">
-          Request Enterprise Demo
-        </button>
+          <div className=\"flex flex-wrap justify-center gap-4 mt-8\">
+            <button className=\"bg-white text-green-700 px-6 py-3 rounded-xl font-bold\">
+              Explore Marketplace
+            </button>
+
+            <button className=\"border border-white px-6 py-3 rounded-xl\">
+              Talk to HYDRA AI
+            </button>
+          </div>
+        </div>
       </section>
 
-      {/* Footer */}
-      <footer className="bg-gray-900 text-gray-400 py-10 text-center">
-        <h3 className="text-white text-xl font-bold mb-2">The OpenPlot</h3>
-        <p>Enterprise GIS • Land Records • Smart Cities</p>
-        <p className="mt-4 text-sm">© 2026 The OpenPlot. All rights reserved.</p>
+      {/* CONTACT */}
+      <section id=\"contact\" className=\"py-20 bg-slate-100\">
+        <div className=\"max-w-4xl mx-auto px-6\">
+          <div className=\"text-center mb-10\">
+            <h2 className=\"text-4xl font-bold\">
+              Book a Client Advocacy Consultation
+            </h2>
+
+            <p className=\"mt-3 text-gray-600\">
+              Our team will help you verify and evaluate your farm property before you buy or sell.
+            </p>
+          </div>
+
+          <div className=\"grid md:grid-cols-2 gap-6\">
+            <input className=\"rounded-xl border p-4\" placeholder=\"Full Name\" />
+            <input className=\"rounded-xl border p-4\" placeholder=\"Phone Number\" />
+            <input className=\"rounded-xl border p-4\" placeholder=\"Email Address\" />
+            <input className=\"rounded-xl border p-4\" placeholder=\"Preferred Location\" />
+          </div>
+
+          <textarea
+            className=\"w-full rounded-xl border p-4 mt-6 h-32\"
+            placeholder=\"Tell us what you're looking for...\"
+          />
+
+          <button className=\"w-full mt-6 bg-green-700 text-white py-4 rounded-xl font-bold\">
+            Request Consultation
+          </button>
+        </div>
+      </section>
+
+      {/* FOOTER */}
+      <footer className=\"bg-slate-950 text-slate-400 py-12\">
+        <div className=\"max-w-7xl mx-auto px-6 grid md:grid-cols-3 gap-8\">
+          <div>
+            <h3 className=\"text-white text-2xl font-bold\">
+              The OpenPlot
+            </h3>
+
+            <p className=\"mt-3\">
+              AI-Powered Farm Land, Farm Plot & Farmhouse Client Advocacy Platform.
+            </p>
+          </div>
+
+          <div>
+            <h4 className=\"text-white font-semibold mb-3\">
+              Marketplace
+            </h4>
+
+            <ul className=\"space-y-2\">
+              <li>Farm Lands</li>
+              <li>Farm Plots</li>
+              <li>Farmhouses</li>
+              <li>Hyderabad Explorer</li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 className=\"text-white font-semibold mb-3\">
+              Contact
+            </h4>
+
+            <p>Hyderabad, Telangana</p>
+            <p>AI Client Advocacy</p>
+            <p>Legal Verification Services</p>
+          </div>
+        </div>
+
+        <div className=\"border-t border-slate-800 mt-10 pt-6 text-center text-sm\">
+          © 2026 The OpenPlot Enterprise. All Rights Reserved.
+        </div>
       </footer>
-   </main>
+
+    </main>
   );
 }
+"}
