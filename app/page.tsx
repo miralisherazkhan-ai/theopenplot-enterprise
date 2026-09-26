@@ -144,6 +144,6 @@ export default function Home() {
         <p>Enterprise GIS • Land Records • Smart Cities</p>
         <p className="mt-4 text-sm">© 2026 The OpenPlot. All rights reserved.</p>
       </footer>
-    </main>
+   </main>
   );
-}"} 
+}
